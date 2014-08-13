@@ -1,0 +1,226 @@
+<%= form_for(@encuestum) do |f| %>
+  <% if @encuestum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@encuestum.errors.count, "error") %> prohibited this encuestum from being saved:</h2>
+
+      <ul>
+      <% @encuestum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :edad %></b>
+    <%= f.text_field :edad , :size => 5%>
+  </div>
+  <div class="field">
+    <b><%= f.label :sexo %></b>
+    <%= f.radio_button(:sexo, 'M') %> M
+    <%= f.radio_button(:sexo, 'F') %> F
+  </div>
+  <div class="field">
+    <b><%= f.label :carrera %>:</b>
+    <%= f.select(:carrera, options_for_select([['Ciencias Computacionales: Sistemas Tecnológicos','CC-T'],['Ciencias Computacionales: Sistemas Multimedia','CC-M'],['Ciencias Computacionales: Sistemas de Informacion','CC-I'],['Ingeniería en Electricidad: Automatización Industrial','AI'],['Ingeniería en Electricidad: Potencia', 'P'], ['Ingeniería en Telecomunicaciones','TC'],['Ingeniería en Telemática','TM']])) %>
+  </div>
+  <br>
+  <div class="field">
+    <b>1. Ha tenido alguna experiencia previa controlando un robot?</b><br>
+    <%= f.radio_button :control_robot, 'SI' %> SI
+    <%= f.radio_button :control_robot, 'NO' %> NO
+  </div>
+ <br>
+  <div class="field"> 
+   <b>2. Ha tenido alguna experiencia previa utilizando una interfaz cerebro computador?</b><br>
+    <%= f.radio_button :control_neuro, 'SI' %> SI
+    <%= f.radio_button :control_neuro, 'NO' %> NO
+  </div>
+   <br>
+  <div class="field">
+    <b>3. ¿Cuán hábil se sintió usted para controlar los eventos que movían al robot?</b><br>
+    <%= f.radio_button :p3, 1 %>
+    <%= f.label :p3, 'Nada Hábil', :value => 1 %>
+    <%= f.radio_button :p3, 2 %>
+    <%= f.label :p3, 'Poco Hábil', :value => 2 %>
+    <%= f.radio_button :p3, 3 %>
+    <%= f.label :p3, 'Ni muy Hábil ni poco Hábil', :value => 3 %>
+    <%= f.radio_button :p3, 4 %>
+    <%= f.label :p3, 'Hábil', :value => 4 %>
+    <%= f.radio_button :p3, 5 %>
+    <%= f.label :p3, 'Muy Hábil', :value => 5 %>
+  </div>
+   <br>
+  <div class="field">
+    <b>4. ¿Cuánto esfuerzo le tomó controlar al robot mediante sus expresiones faciales?</b><br>
+    <%= f.radio_button :p4, 1 %>
+    <%= f.label :p4, 'Nada de esfuerzo', :value => 1 %>
+    <%= f.radio_button :p4, 2 %>
+    <%= f.label :p4, 'Poco esfuerzo', :value => 2 %>
+    <%= f.radio_button :p4, 3 %>
+    <%= f.label :p4, 'Ni mucho esfuerzo ni poco esfuerzo', :value => 3 %>
+    <%= f.radio_button :p4, 4 %>
+    <%= f.label :p4, 'Algo de esfuerzo', :value => 4 %>
+    <%= f.radio_button :p4, 5 %>
+    <%= f.label :p4, 'Mucho Esfuerzo', :value => 5 %>
+  </div>
+   <br>
+  <div class="field">
+    <b>5. ¿Cuán precisas fueron las acciones del robot controlándolo mediante sus expresiones faciales?</b><br>
+    <%= f.radio_button :p5, 1 %>
+    <%= f.label :p5, 'Nada precisas', :value => 1 %>
+    <%= f.radio_button :p5, 2 %>
+    <%= f.label :p5, 'Poco precisas', :value => 2 %>
+    <%= f.radio_button :p5, 3 %>
+    <%= f.label :p5, 'Ni muy precisas ni poco precisas', :value => 3 %>
+    <%= f.radio_button :p5, 4 %>
+    <%= f.label :p5, 'Precisas', :value => 4 %>
+    <%= f.radio_button :p5, 5 %>
+    <%= f.label :p5, 'Muy Precisas', :value => 5 %>
+  </div>
+  <br>
+  <div class="field">
+    <b>6. ¿Cuánto tiempo de retardo percibió usted entre sus acciones y la respuesta del robot ante éstas acciones?</b><br>
+    <%= f.radio_button :p6, 1 %>
+    <%= f.label :p6, 'Mucho retardo', :value => 1 %>
+    <%= f.radio_button :p6, 2 %>
+    <%= f.label :p6, 'Un poco de retardo', :value => 2 %>
+    <%= f.radio_button :p6, 3 %>
+    <%= f.label :p6, 'Muy poco retardo', :value => 3 %>
+    <%= f.radio_button :p6, 4 %>
+    <%= f.label :p6, 'Sin retardo', :value => 4 %>
+   
+  </div>
+   <br>
+  <div class="field">
+    <b>7. ¿Qué tan fácil se le hizo controlar el robot mediante sus expresiones faciales?</b><br>
+    <%= f.radio_button :p3, 1 %>
+    <%= f.label :p7, 'Muy fácil', :value => 1 %>
+    <%= f.radio_button :p7, 2 %>
+    <%= f.label :p7, 'Fácil', :value => 2 %>
+    <%= f.radio_button :p7, 3 %>
+    <%= f.label :p7, 'Ni fácil ni difícil', :value => 3 %>
+    <%= f.radio_button :p7, 4 %>
+    <%= f.label :p7, 'Difícil', :value => 4 %>
+    <%= f.radio_button :p7, 5 %>
+    <%= f.label :p7, 'Muy Difícil', :value => 5 %>
+  </div>
+   <br>
+  <div class="field">
+    <b>8. ¿Qué tan fácil se le hizo aprender el mecanismo para controlar el robot usando sus expresiones faciales?</b><br>
+    <%= f.radio_button :p8, 1 %>
+    <%= f.label :p8, 'Muy fácil', :value => 1 %>
+    <%= f.radio_button :p8, 2 %>
+    <%= f.label :p8, 'Fácil', :value => 2 %>
+    <%= f.radio_button :p8, 3 %>
+    <%= f.label :p8, 'Ni fácil ni difícil', :value => 3 %>
+    <%= f.radio_button :p8, 4 %>
+    <%= f.label :p8, 'Difícil', :value => 4 %>
+    <%= f.radio_button :p8, 5 %>
+    <%= f.label :p8, 'Muy Difícil', :value => 5 %>
+  </div>
+  <br>
+  <div class="field">
+    <b>9. ¿Qué tan útil considera este tipo de aplicaciones?</b><br>
+    <%= f.radio_button :p9, 1 %>
+    <%= f.label :p9, 'Muy poco útil', :value => 1 %>
+    <%= f.radio_button :p9, 2 %>
+    <%= f.label :p9, 'Poco útil', :value => 2 %>
+    <%= f.radio_button :p9, 3 %>
+    <%= f.label :p9, 'Ni muy útil ni poco útil', :value => 3 %>
+    <%= f.radio_button :p9, 4 %>
+    <%= f.label :p9, 'Útil', :value => 4 %>
+    <%= f.radio_button :p9, 5 %>
+    <%= f.label :p9, 'Muy Útil', :value => 5 %>
+  </div>
+   <br>
+  <div class="field">
+    <b>10. ¿Qué tan satisfactoria fue la experiencia?</b><br>
+    <%= f.radio_button :p10, 1 %>
+    <%= f.label :p10, 'Nada satisfactoria', :value => 1 %>
+    <%= f.radio_button :p10, 2 %>
+    <%= f.label :p10, 'Poco satisfactoria', :value => 2 %>
+    <%= f.radio_button :p10, 3 %>
+    <%= f.label :p10, 'Ni muy satisfactoria ni poco satisfactoria', :value => 3 %>
+    <%= f.radio_button :p10, 4 %>
+    <%= f.label :p10, 'Satisfactoria', :value => 4 %>
+    <%= f.radio_button :p10, 5 %>
+    <%= f.label :p10, 'Muy satisfactoria', :value => 5 %>
+  </div>
+  <br>
+  <div class="field">
+    <b>11. ¿Qué tanto le agradó controlar el robot usando el mecanismo neuroreceptor?</b><br>
+    <%= f.radio_button :p11, 1 %>
+    <%= f.label :p11, 'Me desagradó mucho', :value => 1 %>
+    <%= f.radio_button :p11, 2 %>
+    <%= f.label :p11, 'Me desagradó un poco', :value => 2 %>
+    <%= f.radio_button :p11, 3 %>
+    <%= f.label :p11, 'Ni me desagradó ni me agradó', :value => 3 %>
+    <%= f.radio_button :p11, 4 %>
+    <%= f.label :p11, 'Me agradó un poco', :value => 4 %>
+    <%= f.radio_button :p11, 5 %>
+    <%= f.label :p11, 'Me agrandó mucho', :value => 5 %>
+  </div>
+  <br>
+  <div class="field">
+    <b>12. ¿Considera usted beneficioso el uso de este tipo de mecanismos para el control de algún objeto o dispositivo?</b><br>
+    <%= f.radio_button :p12, 1 %>
+    <%= f.label :p12, 'Nada beneficioso', :value => 1 %>
+    <%= f.radio_button :p12, 2 %>
+    <%= f.label :p12, 'Poco beneficioso', :value => 2 %>
+    <%= f.radio_button :p12, 3 %>
+    <%= f.label :p12, 'Beneficioso', :value => 3 %>
+    <%= f.radio_button :p12, 4 %>
+    <%= f.label :p12, 'Muy beneficioso', :value => 4 %>
+  </div>
+  <br></br>
+  <div>
+    <b>13. Del siguiente listado de expresiones faciales que usted uso durante  el experimento, 
+      califíquelas de acuerdo a que tan fácil se le hizo imitar dicho gesto (1 representa 
+      la calificación más baja y 5 la más alta). Las imágenes presentadas con cada evento
+      pueden ayudarle a recordar a que se refiere cada acción. </b>
+  </div>
+  <br>
+  <table border="1">
+    <tr>
+      <th>Evento Expresivo</th>
+      <th>Calificación</th>
+    </tr>
+    <tr>
+      <td> Apretar los labios (Clench) </td>
+      <td><%= f.select(:exp1, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td> Pestañear </td>
+      <td><%= f.select(:exp2, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td>Mirar hacia la izquierda o hacia la derecha  </td>
+      <td><%= f.select(:exp3, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td> Alzar las cejas  </td>
+      <td><%= f.select(:exp4, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td>Guiñar un ojo </td>
+      <td><%= f.select(:exp5, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td> Sonreír </td>
+      <td><%= f.select(:exp6, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td>Fruncir las cejas</td>
+      <td><%= f.select(:exp7, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+    <tr>
+      <td>Smirk left or Smirk Right </td>
+      <td><%= f.select(:exp8, options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]])) %></td>
+    </tr>
+  </table>
+  <br></br>
+  <div class="actions">
+    <%= f.submit :value => 'Enviar Encuesta'%>
+  </div>
+<% end %>

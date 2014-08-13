@@ -1,0 +1,25 @@
+class Encuestum < ActiveRecord::Base
+  validates :edad, presence: true
+  validates :sexo, presence: true
+  validates :carrera, presence: true
+  validates :control_robot, presence: true
+  validates :control_neuro, presence: true
+  validates :p3, presence: true
+  validates :p4, presence: true
+  validates :p5, presence: true
+  validates :p6, presence: true
+  validates :p7, presence: true
+  validates :p8, presence: true
+  validates :p9, presence: true
+  validates :p10, presence: true
+  validates :p11, presence: true
+  validates :p12, presence: true
+  validates :exp1, presence: true
+  validates :exp2, presence: true
+  validates :exp3, presence: true
+  validates :exp4, presence: true
+  validates :exp5, presence: true
+  validates :exp6, presence: true
+  validates :exp7, presence: true
+  validates :exp8, presence: true
+end
