@@ -5,6 +5,10 @@ class EncuestaController < ApplicationController
   # GET /encuesta.json
   def index
     @encuesta = Encuestum.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @encuesta.to_csv }
+    end
   end
 
   # GET /encuesta/1
